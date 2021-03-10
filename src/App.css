@@ -1,3 +1,105 @@
 .container{
-  background-color: #100F10;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-image: url("image4.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /*background-color: #100F10;*/
+  color: rgb(228, 204, 204);
+  flex-direction: column;
+}
+
+.header{
+  display: flex;
+  flex: 1 0 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title{
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.container-content{
+  display: flex;
+  flex: 1 1 90%;
+  flex-direction: row;
+  padding: 8px;
+}
+
+
+.container-content_left{
+  display: flex;
+  flex: 0 1 40%;
+}
+
+.container-content_right{
+  display: flex;
+  flex: 1 1 60%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-form{
+  align-items: center;
+  display: flex;
+  flex: 0 1 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.title-login{
+  display: flex;
+  font-weight: 200;
+  font-size: 25px;
+  padding: 8px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+}
+label{
+  padding: 8px;
+}
+input{
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+.submit-button{
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  background-color: #2ea44f;
+  border: 0px solid;
+  border-radius: 6px;
+  color:#242424;
+  cursor: pointer;
+}
+.submit-button:hover{
+  transition: 0.5s;
+  background-color:  #22863a;
+}
+.footer{
+  display: flex;
+  flex: 0 1 10%;
+  align-items: center;
+  justify-content: center;
+}
+.line{
+  display: flex;
+  height: 1px;
+  background-color: white;
+  justify-content: center;
+  width: 70%;
 }
