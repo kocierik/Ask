@@ -4,7 +4,15 @@ function App() {
   return (
     <div className="container">
       <div className="header">
-      <div className="header-title">AskMe</div>
+      <div className="header-title">StreamingSport</div>
+      <div className="menu-bar">
+        <div className="info">
+          <button className="btn-style">matchDay</button>
+        </div>
+        <div className="post">
+          <button className="btn-style">Sign up</button>
+        </div>
+      </div>
       </div>
       <div className="container-content">
         <div className="container-content_left"></div>  
