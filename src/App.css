@@ -47,6 +47,10 @@
 }
 
 
+a{
+  color: inherit;
+  text-decoration: none;
+}
 
 .info{
   display: flex;
@@ -153,7 +157,13 @@ input{
   justify-content: center;
   width: 70%;
 }
-
+.line-title{
+  display: flex;
+  height: 1px;
+  background-color: white;
+  justify-content: center;
+  width: 100%;
+}
 @media only screen and (max-width: 720px) {
   
   .header{
