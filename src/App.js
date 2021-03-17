@@ -1,20 +1,23 @@
 import { useState } from 'react';
+import React from 'react'
 import './App.css';
 import "./image.jpg"
 import Login from "./Login"
 import Register from "./Register"
+import PrintData from "./printData"
 function App() {
   const [sign,onSign] = useState(true)
-
   const onChangeSign = () =>{
     sign ? onSign(false) : onSign(true)
   }
-
+  const [stock,Setstock] = useState([])
+  stock.push({id: 1, nome: "Apple", quote: 250})
+  stock.push({id: 2, nome: "Samsung", quote: 200})
+  
   return (
     <div className="container">
       <div className="header">
       <div className="header-title"><a href="http://localhost:3000/">StreamingSport</a></div>
-
       <div className="menu-bar">
         <div className="info">
           <button className="btn-style">matchDay</button>
@@ -27,7 +30,9 @@ function App() {
       <div className="line-title"></div>
       
       <div className="container-content">
-        <div className="container-content_left"></div>  
+        <div className="container-content_left">
+        <PrintData stock={stock}/>
+        </div>  
         <div className="container-content_right">
           <div className="container-form">
             <div className="title-login" >{!sign ? "Sign in" : "Sign up"}</div>
