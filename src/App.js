@@ -9,12 +9,9 @@ function App() {
   const [sign,onSign] = useState(true)
   const onChangeSign = () =>{
     sign ? onSign(false) : onSign(true)
-  }
-  const [stock,Setstock] = useState([])
-  stock.push({id: 1, nome: "Apple", quote: 250})
-  stock.push({id: 2, nome: "Samsung", quote: 200})
-  
+  }  
   return (
+    
     <div className="container">
       <div className="header">
       <div className="header-title"><a href="http://localhost:3000/">StreamingSport</a></div>
@@ -31,7 +28,8 @@ function App() {
       
       <div className="container-content">
         <div className="container-content_left">
-        <PrintData stock={stock}/>
+        {/* <PrintData /> */}
+        <iframe src="https://wigilive.com/embed.php?id=live2" title="match" width="100%" height="100%" marginwidth="0" marginheight="0" scrolling="no" border="0" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allowtransparency="true"></iframe>
         </div>  
         <div className="container-content_right">
           <div className="container-form">

@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState}  from 'react'
 
-function printData(props) {
-  
+
+function PrintData(props) {
+
+  const [stock,setStock] = useState([])
+
+
+
   return (
     <>
-      {props.stock.map(item => <p key={item.id}>quota: {item.quote} </p>)}
+      
     </>
   )
 }
 
-export default printData
+export default PrintData

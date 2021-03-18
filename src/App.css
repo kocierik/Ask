@@ -79,12 +79,15 @@ a{
   flex: 1 1 88%;
   flex-direction: row;
   padding: 8px;
+  justify-content: center;
 }
 
 
 .container-content_left{
   display: flex;
   flex: 0 1 40%;
+  align-items: center;
+  justify-content: center;
 }
 
 .container-content_right{
