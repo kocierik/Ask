@@ -1,0 +1,14 @@
+.footer{
+  display: flex;
+  flex: 0 1 10%;
+  align-items: center;
+  justify-content: center;
+}
+
+.line{
+  display: flex;
+  height: 1px;
+  background-color: white;
+  justify-content: center;
+  width: 70%;
+}

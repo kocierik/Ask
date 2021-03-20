@@ -1,7 +1,7 @@
 import React from 'react'
-import Login from "./Login"
-import Register from "./Register"
-
+import Login from "../login"
+import Register from "../register"
+import "./index.scss"
 function AccessPage(props) {
   return (
     <div className="container-content_right">

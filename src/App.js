@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import React from 'react'
 import './App.scss';
-import "./image.jpg"
-import AccessPage from "./AccessPage"
-import {firestore} from "./firebase"
-import Header from "./Header"
+import "./components/static/img/image.jpg"
+import AccessPage from "./components/accessPage"
+import {firestore} from "./server/firebase"
+import Header from "./components/header"
 import Footer from "./components/footer"
-import CommentArea from "./CommentArea"
+import CommentArea from "./components/commentArea"
 
 function App() {
   const [sign,onSign] = useState(true)

@@ -1,0 +1,12 @@
+.container-content_left{
+  display: flex;
+  flex: 0 1 40%;
+  justify-content: center;
+  flex-direction: column;
+}
+@media only screen and (max-width: 720px) {
+  .container-content_left{
+    display: flex;
+    flex: 0 1 0%;
+  }
+}
