@@ -2,13 +2,21 @@
   display: flex;
   height: 100%;
   width: 100%;
-  background-image: url("image4.jpg");
+  background-image: url("image.jpg");
   background-color: #100F10;
   background-size: 100%;
   background-repeat: no-repeat;
   color: rgb(228, 204, 204);
   flex-direction: column;
   animation: transitionIn 1s;
+
+  &__content{
+    display: flex;
+    flex: 1 1 88%;
+    flex-direction: row;
+    padding: 8px;
+    justify-content: center;
+  }
 }
 @keyframes transitionIn{
   from{
@@ -74,20 +82,24 @@ a{
   font-size: 30px;
 }
 
-.container-content{
-  display: flex;
-  flex: 1 1 88%;
-  flex-direction: row;
-  padding: 8px;
-  justify-content: center;
-}
+
 
 
 .container-content_left{
   display: flex;
   flex: 0 1 40%;
-  align-items: center;
   justify-content: center;
+  flex-direction: column;
+
+}
+
+
+.post{
+  display: flex;
+  flex: 1 1 auto;
+  border-radius: 5px;
+  flex-direction: column;
+  border: 1px solid white;
 }
 
 .container-content_right{
