@@ -1,9 +1,9 @@
 import React from 'react'
 import "./index.scss"
-function Post({text}) {
+function Post({text, title}) {
   return (
     <div className="post">
-      <legend>Titolo post</legend>
+      <legend>{title}</legend>
       <p>{text}</p>
     </div>
   )

@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import React from 'react'
 import './App.scss';
 import "./components/static/img/image.jpg"
 import AccessPage from "./components/accessPage"
-import {firestore} from "./server/firebase"
 import Header from "./components/header"
 import Footer from "./components/footer"
 import CommentArea from "./components/commentArea"
@@ -12,14 +11,7 @@ function App() {
   const [sign,onSign] = useState(true)
   const onChangeSign = () =>{
     sign ? onSign(false) : onSign(true)
-  }  
-
-  useEffect(() =>{
-    const match = firestore.collection('match').get().then(snapshot => {
-      console.log({snapshot})
-    })
-    console.log({match})
-  },[])
+  } 
 
   return (
     <div className="container">
