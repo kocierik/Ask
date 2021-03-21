@@ -1,5 +1,5 @@
 import React from 'react'
-import "./MatchDay.scss"
+import "./index.scss"
 function MatchDay() {
   return (
     <div className="container">
