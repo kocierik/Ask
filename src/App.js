@@ -6,7 +6,6 @@ import Header from './components/header'
 import Footer from './components/footer'
 import CommentArea from './components/commentArea'
 import { auth } from './server/firebase';
-
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState()
@@ -18,6 +17,7 @@ function App() {
   useEffect(()=>{
     auth.onAuthStateChanged(user =>{
       setUser(user)
+      console.log(user)
     })
   }, [])
 
@@ -26,6 +26,7 @@ function App() {
       <Header change={onChangeSign} log={sign} />
       <div className="line-title" />
       <div className="container__content">
+      
         <CommentArea />
         <AccessPage sign={sign}/>
       </div>

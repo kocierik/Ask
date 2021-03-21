@@ -10,7 +10,9 @@ function AccessPage({sign}) {
       <div className="container-form">
         <div className="title-login">{!sign ? 'Sign in' : 'Sign up'}</div>
         <div className="line" />
-        {!sign ? <Login /> : <Register />}
+        { 
+          !sign ? <Login /> : <Register />
+          }
       </div>
     </div>
   )
