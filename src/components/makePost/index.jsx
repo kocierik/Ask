@@ -1,6 +1,8 @@
 import React, {useRef} from 'react'
 import './index.scss';
-function MakePost({onAddClick}) {
+import {firestore} from "../../server/firebase"
+function MakePost() {
+
   const textComment = useRef()
   const textTitle = useRef()
   const onTextChangeComment = (e) =>{
@@ -10,12 +12,12 @@ function MakePost({onAddClick}) {
     textTitle.current = e.target.value
   }
   const publicPost = () =>{
-    const dataPost = {content : textComment.current}
-    onAddClick(dataPost)
+    const dataPost = {content : textComment.current, title:textTitle.current, stars:0}
+    firestore.collection('posts').doc(dataPost.id).set(dataPost)
     textComment.current = ""
     textTitle.current = ""
+    
   }
-
   return (
     <div className="post-maker">
       Scrivi un post
@@ -25,5 +27,4 @@ function MakePost({onAddClick}) {
     </div>
   )
 }
-
 export default MakePost
