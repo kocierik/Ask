@@ -6,6 +6,7 @@ import Header from './components/header'
 import Footer from './components/footer'
 import CommentArea from './components/commentArea'
 import { auth } from './server/firebase';
+import { Link, useHistory } from 'react-router-dom';
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState()
@@ -13,13 +14,14 @@ function App() {
   const onChangeSign = () => {
     sign ? onSign(false) : onSign(true)
   }
-
+  const history = useHistory()
   useEffect(()=>{
     auth.onAuthStateChanged(user =>{
       setUser(user)
       console.log(user)
+       user !== null && history.push("/MatchDay") 
     })
-  }, [])
+  }, [history])
 
   return (
     <div className="container">

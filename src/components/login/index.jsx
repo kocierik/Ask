@@ -6,7 +6,7 @@ function Login() {
   const onSignIn = () => {
     signInWithGoogle()
   }
-
+  
   return (
     <div>
       <form>
@@ -17,7 +17,7 @@ function Login() {
         <button type="button" value="" className="submit-button" >submit</button>
         <button type="button" value="" onClick={onSignIn} className="submit-button" >submit with google</button>
       </form>
-    </div>
+      </div>
   )
 }
 export default Login
