@@ -1,21 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App';
-import MatchDay from "./Matchday/index"
-import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
+import App from './pages/App';
+import {  BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <Router>
-     <Switch>
-        <Route path="/" component={App}>
-          <App />
-         </Route>
-         <Route path="/MatchDay" component={MatchDay}>
-           <MatchDay />
-         </Route>
-    </Switch>
-  </Router>,
+      <App />
+  </Router>
+  ,
   document.getElementById('root')
 );
 

@@ -4,16 +4,16 @@ import Post from "../post"
 import {firestore} from "../../server/firebase"
 import "./index.scss"
 import { collectionId } from '../../server/utilities'
-function CommentArea() {
 
-  const [posts,setPosts] = useState([{}])
+
+function CommentArea() {
+  const [posts,setPosts] = useState([])
 
   const callBack = async () => {
     firestore.collection('posts').onSnapshot(snapshot =>{
       const posts = snapshot.docs.map(collectionId)
       setPosts(posts) 
     })
-
   }
 
   useEffect( () =>{
