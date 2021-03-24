@@ -7,11 +7,9 @@ import CommentArea from '../../components/commentArea'
 
 function Auth() {
   const [sign, onSign] = useState(true)
-  
   const onChangeSign = () => {
     sign ? onSign(false) : onSign(true)
   }
-
 
   return (
     <div className="container">
@@ -26,5 +24,4 @@ function Auth() {
     </div>
   );
 }
-
 export default Auth;
