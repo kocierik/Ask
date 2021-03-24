@@ -1,6 +1,6 @@
 import React from 'react'
 import "./index.scss"
-import {signOut} from "../../server/firebase"
+import {auth, signOut} from "../../server/firebase"
 import { useHistory } from 'react-router'
 import MakePost from '../../components/makePost'
 import CommentArea from '../../components/commentArea'
@@ -11,10 +11,11 @@ function MatchDay() {
     await signOut()
     history.push("/auth")
   }
+  console.log(auth.currentUser.displayName )
 
   return (
     <div className="container">
-      <div className="line-title" />
+      <div className="line-title">{auth.currentUser.username} </div>
       <div className="container__content">
       <CommentArea />
       <MakePost />
