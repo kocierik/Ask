@@ -11,11 +11,10 @@ function MatchDay() {
     await signOut()
     history.push("/auth")
   }
-  console.log(auth.currentUser.displayName )
 
   return (
     <div className="container">
-      <div className="line-title">{auth.currentUser.username} </div>
+      <div className="line-title">{auth.currentUser.displayName} </div>
       <div className="container__content">
       <CommentArea />
       <MakePost />

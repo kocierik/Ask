@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useHistory } from 'react-router'
-import { auth } from '../../server/firebase'
+import { auth, createUserProfileDocument } from '../../server/firebase'
 import "./index.scss"
 function Register() {
 
@@ -15,13 +15,12 @@ function Register() {
       password : textPassword.current
     }
      const {email, password, username} = data
-    console.log(email, password, username)
-
+ 
      try {
-       const { user } = await auth.createUserWithEmailAndPassword(email, password)
-       console.log(user)
-       user.updateProfile({username})
-       history.push("/daily-match")
+       const { user } = await auth.createUserWithEmailAndPassword(email, password).then(
+         history.push("/daily-match")
+       )
+       createUserProfileDocument(user, {username})
      } catch (error) {
        console.error(error)
      }

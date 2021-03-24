@@ -5,7 +5,6 @@ function MakePost() {
 
   const textComment = useRef(null)
   const textTitle = useRef(null)
-  console.log(textTitle.current)
 
   const onTextChangeComment = (e) =>{
     textComment.current = e.target.value
@@ -14,9 +13,7 @@ function MakePost() {
     textTitle.current = e.target.value
   }
   const publicPost = () =>{
-    console.log(textTitle.current)
     const {uid, displayName, email} = auth.currentUser || {}
-    console.log(auth.currentUser)
     const dataPost = {
       content : textComment.current,
       title: textTitle.current,

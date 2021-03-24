@@ -20,5 +20,40 @@ export const signInWithGoogle = () => auth.signInWithPopup(provider)
 export const signOut = () => auth.signOut()
 firestore.settings({timestampsInSnapshots : true})
 
+export const createUserProfileDocument = async (user, additionalData) =>{
+  if(!user) return;
+    // get the reference where the data can might be
+    const userRef = firestore.doc(`users/${user.uid}`)
+    
+    // fetch document location
+    const snapshot = await userRef.get()
+    if(!snapshot.exists){
+      const {displayName, email, photoURL} = user
+      const createAt = new Date()
+      try {
+        await userRef.set({
+          displayName,
+          email,
+          createAt,
+          photoURL,
+          ...additionalData
+        })
+      } catch (error) {
+        console.error("errore nella creazione", error)
+      }
+    }
+    return getUserDocument(user.uid)
+}
+export const getUserDocument = async (uid) => {
+  if(!uid) return null;
+  try {
+    const userDocument = await firestore.collection('users').doc(uid).get()
+    return {uid, ...userDocument.data()}
+  } catch (error) {
+    console.error("error fetching the data ", error.message)
+  }
+}
+
+
 window.firebase = firebase
 export default firebase

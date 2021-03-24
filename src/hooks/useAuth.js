@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
-import { auth } from '../server/firebase'
+import { auth, createUserProfileDocument } from '../server/firebase'
 
 const useAuth = () => {
   const [user, setUser] = useState()
   const history = useHistory()
   
   useEffect(()=>{
-    auth.onAuthStateChanged(data =>{
+    auth.onAuthStateChanged( async data =>{
       const isNotLogged = data === null
-      setUser(data)
+      const user = await createUserProfileDocument(data)
+      setUser(user)
 
       if (isNotLogged)  {
         history.push("/auth")
