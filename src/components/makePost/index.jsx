@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, { useRef } from 'react'
 import './index.scss';
 import {auth, firestore} from "../../server/firebase"
 function MakePost() {
@@ -27,6 +27,8 @@ function MakePost() {
     firestore.collection('posts').doc(dataPost.id).set(dataPost)
     textComment.current = ""
     textTitle.current = ""
+    
+
     
   }
   return (

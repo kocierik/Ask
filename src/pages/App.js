@@ -4,8 +4,8 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { userContext } from "../providers/UsersProvider";
 import { useContext } from "react";
 const App = () => {
-  // const { user } = useAuth()
   const user = useContext(userContext);
+
   return user ? (
    <Switch>
     <Route path="/auth" component={Auth} />
