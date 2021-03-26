@@ -4,7 +4,7 @@ import { collectionIdAndDocs } from '../server/utilities'
 
 export const PostsContext = createContext()
 
-function PostsProvider() {
+function PostsProvider(props) {
   const [posts,setPosts] = useState([])
 
   const callBack = async () => {
@@ -17,10 +17,11 @@ function PostsProvider() {
   useEffect( () =>{
     callBack()
   },[]) 
-  
-  const {children} = this.props;
+
   return (
-    <PostsContext.Provider value={posts}> {children} </PostsContext.Provider>
+    <PostsContext.Provider value={posts}> 
+      { props.children }
+     </PostsContext.Provider>
   )
 }
 
