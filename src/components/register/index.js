@@ -17,14 +17,13 @@ function Register() {
      const {email, password, username} = data
  
      try {
-       const { user } = await auth.createUserWithEmailAndPassword(email, password).then(
+       const  user  = await auth.createUserWithEmailAndPassword(email, password).then(
          () => history.push("/daily-match")
        )
        createUserProfileDocument(user, {username})
      } catch (error) {
        console.error(error)
      }
-
   }
 
   const onTextChangeUsername = (e) =>{

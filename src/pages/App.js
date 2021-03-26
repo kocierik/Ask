@@ -1,11 +1,11 @@
 import MatchDay from "./matchday/index"
 import Auth from "./auth/index"
 import { Redirect, Route, Switch } from 'react-router-dom';
-import useAuth from "../hooks/useAuth";
-
+import { userContext } from "../providers/UsersProvider";
+import { useContext } from "react";
 const App = () => {
-  const { user } = useAuth()
-
+  // const { user } = useAuth()
+  const user = useContext(userContext);
   return user ? (
    <Switch>
     <Route path="/auth" component={Auth} />

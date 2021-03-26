@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { auth, createUserProfileDocument } from '../server/firebase'
 
-const useAuth = () => {
+export const userContext = createContext({user : null})
+
+function UsersProvider(props) {
   const [user, setUser] = useState()
   const history = useHistory()
   
@@ -18,7 +20,11 @@ const useAuth = () => {
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
-  return { user}
+
+
+  return (
+    <userContext.Provider value={user}> {props.children} </userContext.Provider>
+  )
 }
 
-export default useAuth
+export default UsersProvider

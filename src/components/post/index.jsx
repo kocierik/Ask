@@ -3,7 +3,6 @@ import "./index.scss"
 import {firestore} from "../../server/firebase"
 function Post({content, id, title, stars}) {
 
-
   const postRef = firestore.doc(`posts/${id}`)
   const remove = () => postRef.delete()
   const starRef = () => postRef.update({stars:stars+1})

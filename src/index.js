@@ -4,12 +4,15 @@ import './index.scss';
 import App from './pages/App';
 import {  BrowserRouter as Router } from 'react-router-dom';
 import PostsProvider from './providers/PostsProvider';
+import UsersProvider from './providers/UsersProvider';
 
 ReactDOM.render(
   <Router>
-    <PostsProvider>
+  <UsersProvider>
+      <PostsProvider>
         <App />
-    </PostsProvider>
+      </PostsProvider>
+    </UsersProvider>
   </Router>
   ,
   document.getElementById('root')

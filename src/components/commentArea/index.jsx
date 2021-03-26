@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, {  useContext } from 'react'
 import Post from "../post"
-import {firestore} from "../../server/firebase"
 import "./index.scss"
-import { collectionIdAndDocs } from '../../server/utilities'
 import { PostsContext } from '../../providers/PostsProvider'
 function CommentArea() {
   
