@@ -1,3 +1,3 @@
-export const collectionId = doc =>{
+export const collectionIdAndDocs = doc =>{
   return {id: doc.id, ...doc.data() };
 }

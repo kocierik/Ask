@@ -18,7 +18,7 @@ function Register() {
  
      try {
        const { user } = await auth.createUserWithEmailAndPassword(email, password).then(
-         history.push("/daily-match")
+         () => history.push("/daily-match")
        )
        createUserProfileDocument(user, {username})
      } catch (error) {

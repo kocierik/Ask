@@ -6,8 +6,9 @@ function Login() {
   const history = useHistory()
 
   const onSignIn = async () => {
-    await signInWithGoogle()
-    history.push("/daily-match")
+    await signInWithGoogle().then(()=>{
+      history.push("/daily-match")
+    })
   }
   
   return (
