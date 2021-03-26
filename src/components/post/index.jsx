@@ -1,7 +1,7 @@
 import React from 'react'
 import "./index.scss"
 import {firestore} from "../../server/firebase"
-function Post({text, id, title, stars}) {
+function Post({content, id, title, stars}) {
 
 
   const postRef = firestore.doc(`posts/${id}`)
@@ -11,7 +11,7 @@ function Post({text, id, title, stars}) {
   return (
     <div className="post">
       <legend>{title}</legend> 
-      <p> {text}</p>
+      <p> {content}</p>
       <button onClick={remove}>Delete post</button>
       <button onClick={starRef}>⭐{stars}</button> 
     </div>

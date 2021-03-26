@@ -20,9 +20,8 @@ function CommentArea() {
   
   return (
     <div className="container-content_left">   
-   {posts.map(post => <Post text={post.content} title={post.title} key={post.id}  id={post.id} stars={post.stars} />)}
+   {posts.map(post => <Post {...post} key={post.id} />)}
    </div>  
   )
 }
-{/* <Post {...post} */}
 export default CommentArea
