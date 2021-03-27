@@ -1,5 +1,6 @@
 import MatchDay from "./matchday/index"
 import Auth from "./auth/index"
+import userProfile from "../components/userProfile/index"
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { userContext } from "../providers/UsersProvider";
 import { useContext } from "react";
@@ -8,8 +9,9 @@ const App = () => {
 
   return user ? (
    <Switch>
-    <Route path="/auth" component={Auth} />
-    <Route path="/daily-match" component={MatchDay}  />
+    <Route exaxt path="/auth" component={Auth} />
+    <Route exact path="/daily-match" component={MatchDay}  />
+    <Route exact path={`/profile/`} component={userProfile} />
   </Switch>
   ) : (
     <Switch>

@@ -17,7 +17,41 @@
     padding: 8px;
     justify-content: center;
     align-items: center;
+
+    &__left{
+      display: flex;
+      flex: 0 1 40%;
+      justify-content: center;
+      flex-direction: column;
+    }
+    @media only screen and (max-width: 720px) {
+      &__left{
+        display: flex;
+        flex: 0 1 0%;
+      }
+    }
+    
+
+    &__right{
+      display: flex;
+      flex: 1 0 60%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    } 
+    @media only screen and (max-width: 720px) {
+      &__right{
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
+
+
+
 }
 @keyframes transitionIn{
   from{
@@ -64,3 +98,4 @@ input{
   flex-direction: column;
   align-items: center;
 }
+

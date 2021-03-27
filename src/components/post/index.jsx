@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import "./index.scss"
 import {firestore} from "../../server/firebase"
 import { userContext } from '../../providers/UsersProvider'
-function Post({content, id, title, stars, user}) {
+import { Link } from 'react-router-dom'
 
+function Post({content, id, title, stars, user}) {
   const postRef = firestore.doc(`posts/${id}`)
   const remove = () => postRef.delete()
   const starRef = () => postRef.update({stars:stars+1})
@@ -12,10 +13,12 @@ function Post({content, id, title, stars, user}) {
     if(!currentUser) return false;
     return currentUser.uid === user.uid
   }
+  console.log(user.displayName.toString())
   return (
     <div className="post">
-      <legend>{title}</legend> 
-      <p> {content}</p>
+      <Link to={`profile/`}> <label>Author: {user.displayName}</label> </Link>
+      <legend>title: {title}</legend>
+      <p>content: {content}</p>
       { ownerPost(currentUser,user) && <button onClick={remove}>Delete post</button> }
       <button onClick={starRef}>⭐{stars}</button> 
     </div>
