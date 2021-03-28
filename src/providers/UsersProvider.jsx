@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { auth, createUserProfileDocument } from '../server/firebase'
 
-export const userContext = createContext({user : null})
+export const userContext = createContext({user :  null})
 
 function UsersProvider(props) {
   const [user, setUser] = useState()
@@ -11,8 +11,14 @@ function UsersProvider(props) {
   useEffect(()=>{
     auth.onAuthStateChanged( async data =>{
       const isNotLogged = data === null
-      const user = await createUserProfileDocument(data)
-      setUser(user)
+      if(data){
+        const userRef = await createUserProfileDocument(data) 
+        userRef.onSnapshot(snapshot => {
+          setUser(snapshot.data())
+        })
+      }
+      setUser(data)
+
 
       if (isNotLogged)  {
         history.push("/auth")

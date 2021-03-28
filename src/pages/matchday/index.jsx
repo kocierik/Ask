@@ -5,6 +5,7 @@ import { useHistory } from 'react-router'
 import MakePost from '../../components/makePost'
 import CommentArea from '../../components/commentArea'
 import { userContext } from '../../providers/UsersProvider'
+import { Link } from 'react-router-dom'
 function MatchDay() {
   const history = useHistory()
   const onLogOutClick = async () =>{
@@ -15,7 +16,7 @@ function MatchDay() {
   return (
     <div className="container">
     <div className="header-matchday">
-      {auth.currentUser.displayName}
+      <Link to="/profile/"> {auth.currentUser.displayName} </Link>
       <img src={user.photoURL} alt="foto"/>
       <div className="line-title"></div>
     </div>

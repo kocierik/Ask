@@ -6,7 +6,6 @@ import { userContext } from "../providers/UsersProvider";
 import { useContext } from "react";
 const App = () => {
   const user = useContext(userContext);
-
   return user ? (
    <Switch>
     <Route exaxt path="/auth" component={Auth} />

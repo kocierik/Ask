@@ -13,10 +13,9 @@ function Post({content, id, title, stars, user}) {
     if(!currentUser) return false;
     return currentUser.uid === user.uid
   }
-  console.log(user.displayName.toString())
   return (
     <div className="post">
-      <Link to={`profile/`}> <label>Author: {user.displayName}</label> </Link>
+      <Link to={`/profile/`}> <label>Author: {user.displayName}</label> </Link>
       <legend>title: {title}</legend>
       <p>content: {content}</p>
       { ownerPost(currentUser,user) && <button onClick={remove}>Delete post</button> }
