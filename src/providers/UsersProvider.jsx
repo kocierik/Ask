@@ -13,7 +13,7 @@ function UsersProvider(props) {
       const isNotLogged = data === null
       if(data){
         const userRef = await createUserProfileDocument(data) 
-        userRef.onSnapshot(snapshot => {
+        userRef.onSnapshot(snapshot => {      // WHEN CHANGE
           setUser(snapshot.data())
         })
       }
