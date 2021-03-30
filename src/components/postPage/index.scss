@@ -1,0 +1,66 @@
+.container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-image: url("../../static/img/image.jpg");
+  background-color: #100F10;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: rgb(228, 204, 204);
+  flex-direction: column;
+  animation: transitionIn 1s;
+
+  &__content{
+    display: flex;
+    flex: 1 1 88%;
+    flex-direction: row;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@keyframes transitionIn{
+  from{
+    opacity: 0;
+    transform: rotateX(10deg);
+  }
+  to{
+    opacity: 1;
+    transform: rotateX(-10);
+  }
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+}
+label{
+  padding: 8px;
+}
+input{
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.line-title{
+  display: flex;
+  height: 1px;
+  background-color: white;
+  justify-content: center;
+  width: 100%;
+}
+
+.header-matchday{
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+}

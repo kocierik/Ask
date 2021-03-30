@@ -4,7 +4,7 @@ import "./index.scss"
 import { PostsContext } from '../../providers/PostsProvider'
 function CommentArea() {
   
-  const posts = useContext(PostsContext)
+  const [posts,setPosts] = useContext(PostsContext)
 
   return (
     <div className="container-content_left">   

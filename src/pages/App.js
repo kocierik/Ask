@@ -4,6 +4,7 @@ import userProfile from "../components/userProfile/index"
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { userContext } from "../providers/UsersProvider";
 import { useContext } from "react";
+import PostPage from "../components/postPage";
 const App = () => {
   const user = useContext(userContext);
   return user ? (
@@ -11,6 +12,7 @@ const App = () => {
     <Route exaxt path="/auth" component={Auth} />
     <Route exact path="/daily-match" component={MatchDay}  />
     <Route exact path={`/profile/`} component={userProfile} />
+    <Route exact path={`/posts/:postId`} component={PostPage} />
   </Switch>
   ) : (
     <Switch>

@@ -19,7 +19,7 @@ function PostsProvider(props) {
   },[]) 
 
   return (
-    <PostsContext.Provider value={posts}> { props.children } </PostsContext.Provider>
+    <PostsContext.Provider value={[posts, setPosts]}> { props.children } </PostsContext.Provider>
   )
 }
 
