@@ -4,8 +4,7 @@ import Post from '../post'
 import { collectionIdAndDocs } from '../../server/utilities'
 import AddComment from '../commentArea/AddComment'
 import { useParams } from 'react-router'
-import Header from '../header'
-import Footer from '../footer'
+
     // firestore.doc(`posts/`).collection("comments").onSnapshot(snapshot =>{
     //   const comments = snapshot.docs.map(collectionIdAndDocs)
     //   setComment(comments)

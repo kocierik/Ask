@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { auth, createUserProfileDocument } from '../../server/firebase'
 import "./index.scss"
