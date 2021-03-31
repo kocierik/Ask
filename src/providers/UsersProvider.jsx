@@ -21,14 +21,9 @@ function UsersProvider(props) {
       } else {
         setUser(undefined)
       }
-<<<<<<< Updated upstream
-
-      if (isNotLogged) {
-=======
       setUser(data)
 
-      if (isNotLogged)  {
->>>>>>> Stashed changes
+      if (isNotLogged) {
         history.push("/auth")
       }
     })

@@ -20,16 +20,11 @@ function MakePost() {
       user: {
         uid: uid,
         displayName: displayName,
-<<<<<<< Updated upstream
         email: email,
-      },
-=======
-        email: email
       },
       favorites: 0,
       comments: 0,
       createdAt: new Date(),
->>>>>>> Stashed changes
     }
     firestore.collection("posts").doc(dataPost.id).set(dataPost)
     textComment.current = ""

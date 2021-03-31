@@ -23,7 +23,6 @@ function UserProfile() {
     imageInput.current = e.target.files[0]
     if (imageInput !== null) {
       const userRef = await firestore.doc(`users/${auth.currentUser.uid}`)
-      console.log(imageInput.current.name)
       storage
         .ref()
         .child("user-profiles")
