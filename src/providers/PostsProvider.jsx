@@ -12,17 +12,27 @@ function PostsProvider(props) {
       const posts = snapshot.docs.map(collectionIdAndDocs)
       setPosts(posts)
     })
+
   }
 
+<<<<<<< Updated upstream
   useEffect(() => {
+=======
+
+  useEffect( () =>{
+>>>>>>> Stashed changes
     callBack()
   }, [])
 
   return (
+<<<<<<< Updated upstream
     <PostsContext.Provider value={[posts, setPosts]}>
       {" "}
       {props.children}{" "}
     </PostsContext.Provider>
+=======
+    <PostsContext.Provider value={posts}> { props.children } </PostsContext.Provider>
+>>>>>>> Stashed changes
   )
 }
 
