@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react"
+import Post from "../post"
 
 function Comments() {
   return (
     <div>
-      { comments.map(post => <Post {...post} key={post.id} />) }
+      {comments.map((post) => (
+        <Post {...post} key={post.id} />
+      ))}
     </div>
   )
 }

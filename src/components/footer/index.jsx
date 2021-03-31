@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react"
 
 function Footer() {
-
   return (
     <div className="footer">
-    <div className="line"></div>
-  </div>
+      <div className="line"></div>
+    </div>
   )
 }
 
