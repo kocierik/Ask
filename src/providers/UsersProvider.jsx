@@ -15,10 +15,12 @@ function UsersProvider(props) {
         const userRef = await createUserProfileDocument(data)
         userRef.onSnapshot((snapshot) => {
           // WHEN CHANGE
-          setUser(snapshot.data())
+          const currentUser = { uid: data.uid, ...snapshot.data() }
+          setUser(currentUser)
         })
+      } else {
+        setUser(undefined)
       }
-      setUser(data)
 
       if (isNotLogged) {
         history.push("/auth")
