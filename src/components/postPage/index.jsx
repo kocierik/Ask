@@ -34,8 +34,8 @@ function PostPage() {
     getComment()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
   if (!post) return null
+  if (!comments) return null
   return (
     <div className="container">
       <Post

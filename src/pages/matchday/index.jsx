@@ -5,7 +5,7 @@ import { useHistory } from "react-router"
 import MakePost from "../../components/makePost"
 import { userContext } from "../../providers/UsersProvider"
 import { Link } from "react-router-dom"
-import Post from "../../components/post"
+import Posts from "../../components/posts"
 function MatchDay() {
   const history = useHistory()
   const onLogOutClick = async () => {
@@ -21,7 +21,7 @@ function MatchDay() {
         <div className="line-title"></div>
       </div>
       <div className="container__content">
-        <Post />
+        <Posts />
         <MakePost />
         <button onClick={onLogOutClick}>Sign out</button>
       </div>

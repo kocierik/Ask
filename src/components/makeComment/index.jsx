@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { firestore } from "../../server/firebase"
+import { auth, firestore } from "../../server/firebase"
 import "./index.scss"
 
 function AddComment({ postId }) {
@@ -9,7 +9,11 @@ function AddComment({ postId }) {
   }
 
   const publicComment = async () => {
-    const dataComment = { createdAt: new Date(), content: textComment }
+    const dataComment = {
+      author: auth.currentUser.displayName,
+      createdAt: new Date(),
+      content: textComment,
+    }
     console.log(dataComment)
     await firestore.doc(`/posts/${postId}`).collection("comments").add(dataComment)
     setTextComment("")
@@ -23,7 +27,7 @@ function AddComment({ postId }) {
         value={textComment}
         onChange={onTextChangeComment}
       />
-      <button onClick={publicComment}>pubblica</button>
+      <input type="submit" value="pubblica" onClick={publicComment} />
     </div>
   )
 }
