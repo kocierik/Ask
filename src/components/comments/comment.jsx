@@ -1,9 +1,10 @@
 import React from "react"
 
-function Comment() {
+function Comment({ content, createAt }) {
+  console.log(content)
   return (
     <div>
-      <p>ciao</p>
+      <p>{content}</p>
     </div>
   )
 }

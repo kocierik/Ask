@@ -1,10 +1,16 @@
-import React from "react"
 import Comment from "./comment"
 
-function Comments(props) {
+function Comments({ textComments, postId }) {
+  console.log(textComments)
   return (
     <div>
-      {/* {props.textComments.savedComments.map(comment => <Comment {...comment} key={comment.id} />)} */}
+      {textComments.map((comment) => (
+        <Comment
+          content={comment.content}
+          createAt={comment.createdAt}
+          key={comment.id}
+        />
+      ))}
     </div>
   )
 }

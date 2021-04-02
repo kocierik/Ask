@@ -22,8 +22,6 @@ function MakePost() {
         displayName: displayName,
         email: email,
       },
-      favorites: 0,
-      comments: 0,
       createdAt: new Date(),
     }
     firestore.collection("posts").doc(dataPost.id).set(dataPost)

@@ -1,16 +1,17 @@
 import React, { useState } from "react"
+import { firestore } from "../../server/firebase"
 import "./index.scss"
 
-function AddComment() {
-  const [comment, setComment] = useState("")
-
+function AddComment({ postId }) {
   const [textComment, setTextComment] = useState("")
-
   const onTextChangeComment = (e) => {
     setTextComment(e.target.value)
   }
 
-  const publicComment = () => {
+  const publicComment = async () => {
+    const dataComment = { createdAt: new Date(), content: textComment }
+    console.log(dataComment)
+    await firestore.doc(`/posts/${postId}`).collection("comments").add(dataComment)
     setTextComment("")
   }
 

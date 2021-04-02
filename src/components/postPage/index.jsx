@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { firestore } from "../../server/firebase"
 import Post from "../post"
 import { collectionIdAndDocs } from "../../server/utilities"
 import AddComment from "../commentArea/AddComment"
 import { useParams } from "react-router"
 import Comments from "../comments/comments"
+import { CommentsContext } from "../../providers/commentsProvider"
 
 function PostPage() {
-  const [comments, setComments] = useState([])
+  const [comments, setComments] = useContext(CommentsContext)
+  console.log(comments)
   const { postId } = useParams()
   const [post, setPost] = useState()
+  console.log(comments)
+  const postsRef = firestore.doc(`/posts/${postId}`)
 
-  const postRef = firestore.doc(`/posts/${postId}`)
-
-  const getPost = async () => {
-    await postRef.onSnapshot((snapshot) => {
-      const result = collectionIdAndDocs(snapshot)
-      setPost(result)
+  const commentsRef = postsRef.collection("comments")
+  const getComment = async () => {
+    await commentsRef.onSnapshot((snapshot) => {
+      const savedComments = snapshot.docs.map(collectionIdAndDocs)
+      setComments(savedComments)
     })
   }
-
-  const commentRef = postRef.collection("comments")
-
-  const getComment = async () => {
-    await commentRef.onSnapshot((snapshot) => {
-      const savedComments = snapshot.docs.map(collectionIdAndDocs)
-      setComments({ savedComments })
+  const getPost = async () => {
+    await postsRef.onSnapshot((snapshot) => {
+      const result = collectionIdAndDocs(snapshot)
+      setPost(result)
     })
   }
 
@@ -45,8 +45,8 @@ function PostPage() {
         stars={post.stars}
         user={post.user}
       />
-      <Comments textComments={comments} postId={post.id} onCreate={() => {}} />
-      <AddComment />
+      <Comments textComments={comments} postId={post.id} />
+      <AddComment postId={post.id} />
     </div>
   )
 }
