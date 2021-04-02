@@ -3,9 +3,9 @@ import "./index.scss"
 import { auth, signOut } from "../../server/firebase"
 import { useHistory } from "react-router"
 import MakePost from "../../components/makePost"
-import CommentArea from "../../components/commentArea"
 import { userContext } from "../../providers/UsersProvider"
 import { Link } from "react-router-dom"
+import Post from "../../components/post"
 function MatchDay() {
   const history = useHistory()
   const onLogOutClick = async () => {
@@ -21,7 +21,7 @@ function MatchDay() {
         <div className="line-title"></div>
       </div>
       <div className="container__content">
-        <CommentArea />
+        <Post />
         <MakePost />
         <button onClick={onLogOutClick}>Sign out</button>
       </div>

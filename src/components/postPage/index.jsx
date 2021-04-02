@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react"
 import { firestore } from "../../server/firebase"
 import Post from "../post"
 import { collectionIdAndDocs } from "../../server/utilities"
-import AddComment from "../commentArea/AddComment"
 import { useParams } from "react-router"
-import Comments from "../comments/comments"
 import { CommentsContext } from "../../providers/commentsProvider"
+import AddComment from "../makeComment"
+import Comments from "../comments"
 
 function PostPage() {
   const [comments, setComments] = useContext(CommentsContext)

@@ -1,4 +1,4 @@
-import Comment from "./comment"
+import Comment from "../comment"
 
 function Comments({ textComments, postId }) {
   console.log(textComments)
