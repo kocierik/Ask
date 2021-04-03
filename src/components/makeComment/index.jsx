@@ -14,7 +14,6 @@ function AddComment({ postId }) {
       createdAt: new Date(),
       content: textComment,
     }
-    console.log(dataComment)
     await firestore.doc(`/posts/${postId}`).collection("comments").add(dataComment)
     setTextComment("")
   }

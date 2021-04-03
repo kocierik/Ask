@@ -1,16 +1,14 @@
-import { firestore } from "../../server/firebase"
 import Comment from "../comment"
 
-function Comments({ textComments, postId }) {
+function Comments({ textComments }) {
   console.log(textComments)
-  // const commentAuthor = firestore.doc()
+  debugger
   return (
     <div>
       {textComments.map((comment) => (
         <Comment
-          content={comment.content}
+          commentUser={comment}
           createAt={comment.createdAt}
-          // postId={}
           key={comment.id}
         />
       ))}

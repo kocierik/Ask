@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router"
-import { auth, createUserProfileDocument } from "../../server/firebase"
+import { auth, createUserProfileDocument, firestore } from "../../server/firebase"
 import "./index.scss"
 function Register() {
   const [textEmail, setEmail] = useState("")
@@ -9,18 +9,22 @@ function Register() {
   const [error, setErrror] = useState()
 
   const history = useHistory()
+  console.log(textUsername)
   const onLogin = async () => {
+    firestore.doc(`users/${auth.currentUser.uid}`).add({ displayName: textUsername })
     const data = {
-      username: textUsername,
+      displayName: textUsername,
       email: textEmail,
       password: textPassword,
     }
-    const { email, password, username } = data
+    const { email, password, displayName } = data
 
     try {
+      debugger
+      // console.log(displayName)
       const user = await auth.createUserWithEmailAndPassword(email, password)
       history.push("/daily-match")
-      createUserProfileDocument(user, { username })
+      createUserProfileDocument(user, displayName)
       setEmail("")
       setTextUsername("")
       setTextPassword("")
@@ -68,11 +72,11 @@ function Register() {
           onChange={onTextChangePassword}
         ></input>
         <input
-          type="button"
+          type="submit"
           value="submit"
           onClick={onLogin}
           className="submit-button"
-        ></input>
+        />
       </form>
       {error && <p> Error: {error} </p>}
     </div>

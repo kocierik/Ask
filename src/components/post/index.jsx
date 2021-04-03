@@ -16,7 +16,7 @@ function Post({ content, id, title, stars, user }) {
   return (
     <div className="post">
       <label>
-        <b>Author:</b> {user.displayName}
+        <b>Author:</b> {user.email} {/* CHANGE IN USERNAME */}
       </label>
       <Link to={`/posts/${id}`}>
         <legend>

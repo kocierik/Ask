@@ -1,13 +1,11 @@
-import React, { useContext } from "react"
-import { userContext } from "../../providers/UsersProvider"
+import React from "react"
 
-function Comment({ content, createAt }) {
-  const commentUser = useContext(userContext)
+function Comment({ commentUser }) {
   console.log(commentUser)
   return (
     <div>
       <p>
-        {commentUser.displayName}: {content}
+        {commentUser.author}: {commentUser.content}
       </p>
     </div>
   )

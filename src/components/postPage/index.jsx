@@ -9,10 +9,8 @@ import Comments from "../comments"
 
 function PostPage() {
   const [comments, setComments] = useContext(CommentsContext)
-  console.log(comments)
   const { postId } = useParams()
   const [post, setPost] = useState()
-  console.log(comments)
   const postsRef = firestore.doc(`/posts/${postId}`)
 
   const commentsRef = postsRef.collection("comments")
