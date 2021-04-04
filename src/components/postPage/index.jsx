@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useState } from "react"
 import { firestore } from "../../server/firebase"
 import Post from "../post"
 import { collectionIdAndDocs } from "../../server/utilities"
+import AddComment from "../commentArea/AddComment"
 import { useParams } from "react-router"
+import Comments from "../comments/comments"
 import { CommentsContext } from "../../providers/commentsProvider"
-import AddComment from "../makeComment"
-import Comments from "../comments"
 
 function PostPage() {
   const [comments, setComments] = useContext(CommentsContext)
+  console.log(comments)
   const { postId } = useParams()
   const [post, setPost] = useState()
+  console.log(comments)
   const postsRef = firestore.doc(`/posts/${postId}`)
 
   const commentsRef = postsRef.collection("comments")
@@ -32,8 +34,8 @@ function PostPage() {
     getComment()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
   if (!post) return null
-  if (!comments) return null
   return (
     <div className="container">
       <Post

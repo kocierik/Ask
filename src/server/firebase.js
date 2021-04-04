@@ -27,23 +27,21 @@ export const createUserProfileDocument = async (user, additionalData) => {
   if (!user) return
   // get the reference where the data can might be
   const userRef = firestore.doc(`users/${user.uid}`)
+
   // fetch document location
   const snapshot = await userRef.get()
   if (!snapshot.exists) {
-    const { email, photoURL, uid } = user
+    const { displayName, email, photoURL, uid } = user
     const createAt = new Date()
-    const displayName = "erik"
     try {
       await userRef.set({
         uid,
-        email,
         displayName,
+        email,
         createAt,
         photoURL,
         ...additionalData,
       })
-      console.log(userRef)
-      debugger
     } catch (error) {
       console.error("errore nella creazione", error)
     }

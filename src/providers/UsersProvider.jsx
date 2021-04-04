@@ -10,7 +10,6 @@ function UsersProvider(props) {
 
   useEffect(() => {
     auth.onAuthStateChanged(async (data) => {
-      console.log(data)
       const isNotLogged = data === null
       if (data) {
         const userRef = await createUserProfileDocument(data)

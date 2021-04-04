@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import Post from "../post"
 import "./index.scss"
 import { PostsContext } from "../../providers/PostsProvider"
-function Posts() {
+function CommentArea() {
   const posts = useContext(PostsContext)
   return (
     <div className="container-content_left">
@@ -12,4 +12,4 @@ function Posts() {
     </div>
   )
 }
-export default Posts
+export default CommentArea

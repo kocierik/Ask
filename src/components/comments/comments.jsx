@@ -1,13 +1,12 @@
-import Comment from "../comment"
+import Comment from "./comment"
 
-function Comments({ textComments }) {
+function Comments({ textComments, postId }) {
   console.log(textComments)
-  debugger
   return (
     <div>
       {textComments.map((comment) => (
         <Comment
-          commentUser={comment}
+          content={comment.content}
           createAt={comment.createdAt}
           key={comment.id}
         />

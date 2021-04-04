@@ -3,7 +3,7 @@ import "./index.scss"
 import AccessPage from "../../components/accessPage"
 import Header from "../../components/header"
 import Footer from "../../components/footer"
-import Posts from "../../components/posts"
+import CommentArea from "../../components/commentArea"
 
 function Auth() {
   const [sign, onSign] = useState(true)
@@ -16,7 +16,7 @@ function Auth() {
       <Header change={onChangeSign} log={sign} />
       <div className="line-title" />
       <div className="container__content">
-        <Posts />
+        <CommentArea />
         <AccessPage sign={sign} />
       </div>
       <Footer />
