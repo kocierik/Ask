@@ -1,6 +1,6 @@
 import React from "react"
 import Login from "../login"
-import Register from "../register"
+import Register from "../signIn/index"
 import "./index.scss"
 
 function AccessPage({ sign }) {
